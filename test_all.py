@@ -12,7 +12,7 @@ def test_upload_evento_vacio():
     assert isinstance(result, dict)
 
 # === Tests para glue_trigger.py ===
-from glue_trigger import iniciar_trabajo_glue
+from scripts.glue_trigger import iniciar_trabajo_glue
 
 def test_iniciar_trabajo_glue_mock(mocker):
     mock_client = mocker.Mock()
@@ -22,7 +22,7 @@ def test_iniciar_trabajo_glue_mock(mocker):
     assert resultado == {"JobRunId": "1234"}
 
 # === Tests para procesador.py ===
-from procesador import Procesador
+from scripts.procesador import Procesador
 
 def test_procesar_archivo_csv(tmp_path):
     archivo = tmp_path / "datos.csv"
@@ -35,7 +35,7 @@ def test_procesar_archivo_csv(tmp_path):
     assert df.shape == (2, 2)
 
 # === Tests para procesamiento.py ===
-from procesamiento import limpiar_datos
+from scripts.procesamiento import limpiar_datos
 
 def test_limpiar_datos():
     datos = pd.DataFrame({
