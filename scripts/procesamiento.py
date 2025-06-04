@@ -52,6 +52,7 @@ def load_data(spark, input_path=INPUT_PATH):
 
 #Limpiar y procesar los datos
 def preprocess_data(df):
+    return df
     try:
         logger.info("Starting data preprocessing...")
         df_clean = df.select(
@@ -139,6 +140,7 @@ def save_results(predictions, output_base_path=OUTPUT_BASE_PATH):
 
 #Funcion principal
 def main():
+    return
     logger.info("=" * 60)
     logger.info("NEWS CLASSIFICATION PIPELINE STARTING")
     logger.info("=" * 60)
