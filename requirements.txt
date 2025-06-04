@@ -3,3 +3,4 @@ beautifulsoup4
 pytest
 zappa
 pyspark
+pandas
