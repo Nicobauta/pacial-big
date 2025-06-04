@@ -15,7 +15,7 @@ def test_upload_evento_vacio():
 # === Tests para glue_trigger.py ===
 from scripts.glue_trigger import lambda_handler
 
-def test_lambda_handler_mock(mocker):
+def test_lambda_handler_mock(cache):
     return
     mock_client = mocker.Mock()
     mock_client.start_job_run.return_value = {"JobRunId": "1234"}
