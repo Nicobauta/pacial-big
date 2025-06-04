@@ -8,6 +8,7 @@ from scripts.app import upload
 def test_upload_evento_vacio():
     event = {}
     context = {}
+    pass
     result = upload(event, context)
     assert isinstance(result, dict)
 
