@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 # === Tests para app.py ===
-from app import lambda_handler
+from scripts.app import lambda_handler
 
 def test_lambda_handler_evento_vacio():
     event = {}
