@@ -12,36 +12,36 @@ def test_upload_evento_vacio():
     assert isinstance(result, dict)
 
 # === Tests para glue_trigger.py ===
-from scripts.glue_trigger import iniciar_trabajo_glue
+from scripts.glue_trigger import lambda_handler
 
-def test_iniciar_trabajo_glue_mock(mocker):
+def test_lambda_handler_mock(mocker):
     mock_client = mocker.Mock()
     mock_client.start_job_run.return_value = {"JobRunId": "1234"}
 
-    resultado = iniciar_trabajo_glue(mock_client, "mi_trabajo")
+    resultado = lambda_handler(mock_client, "mi_trabajo")
     assert resultado == {"JobRunId": "1234"}
 
 # === Tests para procesador.py ===
-from scripts.procesador import Procesador
+from scripts.procesador import lambda_handler
 
 def test_procesar_archivo_csv(tmp_path):
     archivo = tmp_path / "datos.csv"
     archivo.write_text("col1,col2\n1,2\n3,4")
 
-    p = Procesador()
+    p = lambda_handler()
     df = p.procesar_csv(str(archivo))
 
     assert not df.empty
     assert df.shape == (2, 2)
 
 # === Tests para procesamiento.py ===
-from scripts.procesamiento import limpiar_datos
+from scripts.procesamiento import preprocess_data
 
-def test_limpiar_datos():
+def test_preprocess_data():
     datos = pd.DataFrame({
         "col1": [1, 2, None],
         "col2": ["a", None, "c"]
     })
 
-    resultado = limpiar_datos(datos)
+    resultado = preprocess_data(datos)
     assert not resultado.isnull().values.any()
