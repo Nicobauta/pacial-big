@@ -21,7 +21,7 @@ HEADERS = {
 }
 
 def upload(event=None, context=None):
-    today = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d")  # Formato YYYY-MM-DD
+    today = datetime.now(datetime.UTC).strftime("%Y-%m-%d")  # Formato YYYY-MM-DD
 
     for name, url in SOURCES.items():
         try:
