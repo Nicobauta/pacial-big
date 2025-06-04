@@ -3,12 +3,12 @@ import pandas as pd
 from pathlib import Path
 
 # === Tests para app.py ===
-from scripts.app import lambda_handler
+from scripts.app import upload
 
-def test_lambda_handler_evento_vacio():
+def test_upload_evento_vacio():
     event = {}
     context = {}
-    result = lambda_handler(event, context)
+    result = upload(event, context)
     assert isinstance(result, dict)
 
 # === Tests para glue_trigger.py ===
