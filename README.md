@@ -1,4 +1,3 @@
-# pacial-big
 
 # Proyecto Big Data – Pipeline de Procesamiento con Python y AWS
 
